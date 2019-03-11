@@ -1,0 +1,29 @@
+<?php
+/** @var \Test\Status\Block\Index\Index $block */
+?>
+<form class="form form-edit-status"
+      action="<?php echo $block->escapeUrl($block->getUrl('teststatus/index/save')) ?>"
+      method="post" id="form-validate" enctype="multipart/form-data"
+      data-hasrequired="<?php echo $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+    <fieldset class="fieldset edit">
+        <?php echo $block->getBlockHtml('formkey') ?>
+        <div class="field" style="width:50%;">
+            <label class="label" ><span><?php echo $block->escapeHtml(__('Status')) ?></span></label>
+            <div class="control">
+                <input type="text" name="test_status" id="test-status" autocomplete="off"
+                       value="<?php echo $block->escapeHtmlAttr($block->getTestStatus()) ?>"
+                       title="<?php echo $block->escapeHtmlAttr(__('Test Status')) ?>" class="input-text"" />
+            </div>
+        </div>
+    </fieldset>
+
+    <?php echo $block->getChildHtml('form_additional_info') ?>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action save primary"
+                    title="<?php echo $block->escapeHtmlAttr(__('Save')) ?>">
+                <span><?php echo $block->escapeHtml(__('Save')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
